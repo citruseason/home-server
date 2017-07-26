@@ -68,7 +68,3 @@ $RECYCLE.BIN/
 
 # data ignore
 **/volume/
-**/data/certs
-**/data/conf.d
-**/data/html
-**/data/vhost.d
