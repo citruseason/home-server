@@ -65,8 +65,6 @@ services:
       OPCACHE_MEM_SIZE: 128
       CRON_PERIOD: 15m
       TZ: Asia/Seoul
-      ADMIN_USER: pavons
-      ADMIN_PASSWORD: nextcloud
       DOMAIN: cloud.pavons.com
       DB_TYPE: mysql
       DB_NAME: nextcloud
