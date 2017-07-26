@@ -1,1 +1,1 @@
-../../../nextcloud/vhost.d/cloud.pavons.com
+client_max_body_size 10G;
