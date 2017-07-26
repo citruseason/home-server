@@ -30,8 +30,9 @@ $ ln -s ../../../app_path/vhost.d/cloud.pavons.com
 ```
 $ vi /app_path/vhost.d/{VIRTUAL_HOST (e.g. cloud.pavons.com)}
 client_max_body_size 10G;
-$ cd {PROJECT_PATH}/nginx/data/vhost.d
-$ ln -s ../../../app_path/vhost.d/cloud.pavons.com
 ...
 (저장)
+
+$ cd {PROJECT_PATH}/nginx/data/vhost.d
+$ ln -s ../../../app_path/vhost.d/cloud.pavons.com
 ```
