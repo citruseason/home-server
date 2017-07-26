@@ -10,6 +10,8 @@ services:
     restart: unless-stopped
     image: mariadb:10
     container_name: nextcloud-db
+    ports:
+      - "3306:3306"
     volumes:
       - database:/var/lib/mysql
     environment:
@@ -62,9 +64,9 @@ services:
       APC_SHM_SIZE: 128M
       OPCACHE_MEM_SIZE: 128
       CRON_PERIOD: 15m
-      TZ: Europe/Berlin
+      TZ: Asia/Seoul
       ADMIN_USER: pavons
-      ADMIN_PASSWORD: admin
+      ADMIN_PASSWORD: nextcloud
       DOMAIN: cloud.pavons.com
       DB_TYPE: mysql
       DB_NAME: nextcloud
