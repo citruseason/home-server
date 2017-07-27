@@ -22,5 +22,5 @@ Enter repeat password: (위와 동일한 Password 입력)
 ## Nginx 부가 설정파일
 간혹 서버에 FileUpload와 같이 용량설정과 같은 필요 파라메터들이 필요할 때 아래와 같은 형식으로 `nginx/vhost.d` 폴더안에 넣어줍니다.
 ```
-$ { echo 'client_max_body_size 10G;'; } > nginx/vhost.d/{VIRTUAL_HOST (e.g. cloud.pavons.com)}
+$ { echo 'client_max_body_size 10G;'; } > nginx/vhost.d/{VIRTUAL_HOST (e.g. ncloud.pavons.com)}
 ```
