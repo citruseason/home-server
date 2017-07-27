@@ -25,4 +25,4 @@ if [ -z "$CLOUD_DB_PASSWORD" ]; then
 fi
 
 docker-compose -f nginx/docker-compose.yml up -d --build
-docker-compose -f nextcloud/docker-compose.yml up -d --build
+docker-compose -f nas/docker-compose.yml up -d --build
