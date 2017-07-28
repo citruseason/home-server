@@ -1,0 +1,21 @@
+version: '3'
+
+service:
+  netdata:
+    container_name: netdata
+    image: titpetric/netdata
+    restart: unless-stopped
+    cap_add:
+      - SYS_PTRACE
+    volumes:
+      - ./data:/etc/netdata
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      TZ: Asia/Seoul
+
+networks:
+  default:
+    external:
+      name: server-proxy
