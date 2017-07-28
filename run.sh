@@ -28,9 +28,7 @@ fi
 if [ -z "$PLEX_CLAIM" ]; then
     while true; do
         echo -n "Enter Plex Claim Token: "
-        stty -echo
         read token
-        stty echo
         echo ""
 
         if [ "$token" != "" ]; then
