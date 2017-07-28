@@ -4,6 +4,7 @@ DIR_HERE=$(pwd)
 
 # Cloud Password 설정
 if [ -z "$CLOUD_DB_PASSWORD" ]; then
+    sed -i '/export CLOUD_DB_PASSWORD/d' ~/.bashrc
     while true; do
         echo -n "Enter database password: "
         stty -echo
@@ -25,10 +26,12 @@ fi
 
 # Torrent Auth 설정
 if [ -z "$TORRENT_AUTH_USERNAME" ]; then
+    sed -i '/export TORRENT_AUTH_USERNAME/d' ~/.bashrc
+    sed -i '/export TORRENT_AUTH_PASSWORD/d' ~/.bashrc
     while true; do
         echo -n "Enter torrent auth username: "
         read torrent_username
-        echo -n "\nEnter torrent auth password: "
+        echo -e -n "\nEnter torrent auth password: "
         stty -echo
         read torrent_password
         echo -e -n "\nEnter repeat password: "
@@ -49,6 +52,7 @@ fi
 
 # Plex Claim 설정
 if [ -z "$PLEX_CLAIM" ]; then
+    sed -i '/export PLEX_CLAIM/d' ~/.bashrc
     while true; do
         echo -n "Enter Plex Claim Token: "
         read token
