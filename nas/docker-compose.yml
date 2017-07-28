@@ -51,12 +51,10 @@ services:
       - nextcloud-solr:solr
       - nextcloud-redis:redis
     volumes:
-      - ./volume/data:/data
-      - ./volume/config:/config
-      - ./volume/apps:/apps2
-      - ./volume/themes:/nextcloud/themes
-    expose:
-      - "8888"
+      - ./volume/cloud/data:/data
+      - ./volume/cloud/config:/config
+      - ./volume/cloud/apps:/apps2
+      - ./volume/cloud/themes:/nextcloud/themes
     environment:
       UID: 1000
       GID: 1000
@@ -74,6 +72,40 @@ services:
       VIRTUAL_HOST: ncloud.pavons.com
       LETSENCRYPT_HOST: ncloud.pavons.com
       LETSENCRYPT_EMAIL: jigm1539@gmail.com
+
+  torrent:
+    restart: unless-stopped
+    image: kfei/docktorrent
+    container_name: torrent
+    ports:
+      - "45566:45566"
+      - "9527:9527/udp"
+    dns:
+      - "8.8.8.8"
+    volumes:
+      - ./volume/cloud/plex/files:/rtorrent
+    environment:
+      UPLOAD_RATE: 1024
+      IP: torrent.pavons.com
+      VIRTUAL_HOST: torrent.pavons.com
+      LETSENCRYPT_HOST: torrent.pavons.com
+      LETSENCRYPT_EMAIL: jigm1539@gmail.com
+
+  plex:
+    container_name: plex
+    image: plexinc/pms-docker
+    restart: unless-stopped
+    environment:
+      TZ: Asia/Seoul
+      PLEX_CLAIM: ${PLEX_CLAIM}
+      VIRTUAL_HOST: movie.pavons.com
+      LETSENCRYPT_HOST: movie.pavons.com
+      LETSENCRYPT_EMAIL: jigm1539@gmail.com
+    network_mode: host
+    volumes:
+      - ./volume/plex/config:/config
+      - ./volume/plex/transcode:/transcode
+      - ./volume/cloud/data/plex/files:/data
 
 networks:
   default:

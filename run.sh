@@ -24,5 +24,25 @@ if [ -z "$CLOUD_DB_PASSWORD" ]; then
     done
 fi
 
+# Plex Claim 설정
+if [ -z "$PLEX_CLAIM" ]; then
+    while true; do
+        echo -n "Enter Plex Claim Token: "
+        stty -echo
+        read token
+        stty echo
+        echo ""
+
+        if [ "$token" != "" ]; then
+            echo "export PLEX_CLAIM=\"${token}\"" > ~/.bashrc
+            source ~/.bashrc
+            break
+        else
+            echo "Please get token and input token (https://www.plex.tv/claim/)"
+        fi
+    done
+fi
+
 docker-compose -f nginx/docker-compose.yml up -d --build
 docker-compose -f nas/docker-compose.yml up -d --build
+docker-compose -f netdata/docker-compose.yml up -d --build
