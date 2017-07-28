@@ -98,7 +98,6 @@ services:
     container_name: plex
     image: plexinc/pms-docker
     restart: unless-stopped
-    network_mode: host
     environment:
       TZ: Asia/Seoul
       PLEX_CLAIM: ${PLEX_CLAIM}
@@ -106,7 +105,7 @@ services:
       VIRTUAL_HOST: movie.pavons.com
       LETSENCRYPT_HOST: movie.pavons.com
       LETSENCRYPT_EMAIL: jigm1539@gmail.com
-    network_mode: host
+    network_mode: "host"
     volumes:
       - ./volume/plex/config:/config
       - ./volume/plex/transcode:/transcode
