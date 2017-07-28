@@ -105,7 +105,6 @@ services:
       VIRTUAL_HOST: movie.pavons.com
       LETSENCRYPT_HOST: movie.pavons.com
       LETSENCRYPT_EMAIL: jigm1539@gmail.com
-    network_mode: "host"
     volumes:
       - ./volume/plex/config:/config
       - ./volume/plex/transcode:/transcode
