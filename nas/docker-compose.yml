@@ -85,6 +85,7 @@ services:
     volumes:
       - ./volume/cloud/data/plex/files:/rtorrent
     environment:
+      LOGS_OFF: "yes"
       UPLOAD_RATE: 1024
       IP: torrent.pavons.com
       VIRTUAL_HOST: torrent.pavons.com
