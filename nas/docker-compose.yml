@@ -95,9 +95,12 @@ services:
     container_name: plex
     image: plexinc/pms-docker
     restart: unless-stopped
+    expose:
+      - 32400
     environment:
       TZ: Asia/Seoul
       PLEX_CLAIM: ${PLEX_CLAIM}
+      ADVERTISE_IP: https://movie.pavons.com
       VIRTUAL_HOST: movie.pavons.com
       LETSENCRYPT_HOST: movie.pavons.com
       LETSENCRYPT_EMAIL: jigm1539@gmail.com
