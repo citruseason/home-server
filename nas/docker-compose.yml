@@ -84,6 +84,8 @@ services:
       - "8.8.8.8"
     volumes:
       - ./volume/cloud/data/plex/files:/rtorrent
+    logging:
+      driver: "none"
     environment:
       LOGS_OFF: "yes"
       UPLOAD_RATE: 1024
