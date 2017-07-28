@@ -103,6 +103,7 @@ services:
       PLEX_CLAIM: ${PLEX_CLAIM}
       ADVERTISE_IP: https://movie.pavons.com
       VIRTUAL_HOST: movie.pavons.com
+      VIRTUAL_PORT: 32400
       LETSENCRYPT_HOST: movie.pavons.com
       LETSENCRYPT_EMAIL: jigm1539@gmail.com
     volumes:
