@@ -16,7 +16,31 @@ if [ -z "$CLOUD_DB_PASSWORD" ]; then
 
         if [ "$cloud_password" == "$cloud_password_repeat" ]; then
             echo "export CLOUD_DB_PASSWORD=\"${cloud_password}\"" >> ~/.bashrc
-            source ~/.bashrc
+            break
+        else
+            echo "Two password does not match."
+        fi
+    done
+fi
+
+# Torrent Auth 설정
+if [ -z "$TORRENT_AUTH_USERNAME" ]; then
+    while true; do
+        echo -n "Enter torrent auth username: "
+        stty -echo
+        read torrent_username
+        echo -n "\nEnter torrent auth password: "
+        stty -echo
+        read torrent_password
+        echo -e -n "\nEnter repeat password: "
+        stty -echo
+        read torrent_password_repeat
+        stty echo
+        echo ""
+
+        if [ "$torrent_password" == "$torrent_password_repeat" ]; then
+            echo "export TORRENT_AUTH_USERNAME=\"${torrent_username}\"" >> ~/.bashrc
+            echo "export TORRENT_AUTH_PASSWORD=\"${torrent_password}\"" >> ~/.bashrc
             break
         else
             echo "Two password does not match."
@@ -33,13 +57,14 @@ if [ -z "$PLEX_CLAIM" ]; then
 
         if [ "$token" != "" ]; then
             echo "export PLEX_CLAIM=\"${token}\"" >> ~/.bashrc
-            source ~/.bashrc
             break
         else
             echo "Please get token and input token (https://www.plex.tv/claim/)"
         fi
     done
 fi
+
+source ~/.bashrc
 
 docker-compose -f nginx/docker-compose.yml up -d --build
 docker-compose -f nas/docker-compose.yml up -d --build

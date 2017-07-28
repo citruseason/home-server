@@ -84,6 +84,7 @@ services:
       - "8.8.8.8"
     volumes:
       - ./volume/cloud/data/plex/files:/rtorrent
+    command: htpasswd -cb /usr/share/nginx/html/rutorrent/.htpasswd ${TORRENT_AUTH_USERNAME} ${TORRENT_AUTH_PASSWORD}
     environment:
       UPLOAD_RATE: 1024
       IP: torrent.pavons.com
