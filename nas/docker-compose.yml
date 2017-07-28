@@ -96,7 +96,7 @@ services:
     image: plexinc/pms-docker
     restart: unless-stopped
     expose:
-      - 32400
+      - "32400"
     environment:
       TZ: Asia/Seoul
       PLEX_CLAIM: ${PLEX_CLAIM}
