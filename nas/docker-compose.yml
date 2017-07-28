@@ -83,7 +83,7 @@ services:
     dns:
       - "8.8.8.8"
     volumes:
-      - ./volume/cloud/plex/files:/rtorrent
+      - ./volume/cloud/data/plex/files:/rtorrent
     environment:
       UPLOAD_RATE: 1024
       IP: torrent.pavons.com
