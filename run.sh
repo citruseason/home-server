@@ -27,7 +27,6 @@ fi
 if [ -z "$TORRENT_AUTH_USERNAME" ]; then
     while true; do
         echo -n "Enter torrent auth username: "
-        stty -echo
         read torrent_username
         echo -n "\nEnter torrent auth password: "
         stty -echo
