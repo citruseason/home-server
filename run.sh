@@ -15,7 +15,7 @@ if [ -z "$CLOUD_DB_PASSWORD" ]; then
         echo ""
 
         if [ "$cloud_password" == "$cloud_password_repeat" ]; then
-            echo "export CLOUD_DB_PASSWORD=\"${cloud_password}\"" > ~/.bashrc
+            echo "export CLOUD_DB_PASSWORD=\"${cloud_password}\"" >> ~/.bashrc
             source ~/.bashrc
             break
         else
@@ -32,7 +32,7 @@ if [ -z "$PLEX_CLAIM" ]; then
         echo ""
 
         if [ "$token" != "" ]; then
-            echo "export PLEX_CLAIM=\"${token}\"" > ~/.bashrc
+            echo "export PLEX_CLAIM=\"${token}\"" >> ~/.bashrc
             source ~/.bashrc
             break
         else
