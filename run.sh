@@ -72,6 +72,3 @@ source ~/.bashrc
 docker-compose -f nginx/docker-compose.yml up -d --build
 docker-compose -f nas/docker-compose.yml up -d --build
 docker-compose -f netdata/docker-compose.yml up -d --build
-
-# Torrent User setting
-docker exec -it torrent htpasswd -cb /usr/share/nginx/html/rutorrent/.htpasswd ${TORRENT_AUTH_USERNAME} ${TORRENT_AUTH_PASSWORD}

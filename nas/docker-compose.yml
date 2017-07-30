@@ -81,7 +81,7 @@ services:
       - "49184:49184"
     volumes:
       - ./volume/cloud/data/plex/files:/data
-      - ./volume/torrent/db:flood-db
+      - ./volume/torrent/db:/flood-db
     environment:
       FLOOD_SECRET: ${CLOUD_DB_PASSWORD}
       VIRTUAL_HOST: torrent.pavons.com
