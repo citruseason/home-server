@@ -75,21 +75,15 @@ services:
 
   torrent:
     restart: unless-stopped
-    image: kfei/docktorrent
+    image: wonderfall/rtorrent-flood
     container_name: torrent
     ports:
-      - "45566:45566"
-      - "9527:9527/udp"
-    dns:
-      - "8.8.8.8"
+      - "49184:49184"
     volumes:
-      - ./volume/cloud/data/plex/files:/rtorrent
-    logging:
-      driver: "none"
+      - ./volume/cloud/data/plex/files:/data
+      - ./volume/torrent/db:flood-db
     environment:
-      LOGS_OFF: "yes"
-      UPLOAD_RATE: 1024
-      IP: torrent.pavons.com
+      FLOOD_SECRET: ${CLOUD_DB_PASSWORD}
       VIRTUAL_HOST: torrent.pavons.com
       LETSENCRYPT_HOST: torrent.pavons.com
       LETSENCRYPT_EMAIL: jigm1539@gmail.com
