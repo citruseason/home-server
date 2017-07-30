@@ -111,7 +111,7 @@ services:
     environment:
       TZ: Asia/Seoul
       PLEX_CLAIM: ${PLEX_CLAIM}
-      ADVERTISE_IP: https://movie.pavons.com
+      ADVERTISE_IP: http://movie.pavons.com:32400
       VIRTUAL_HOST: movie.pavons.com
       VIRTUAL_PORT: 32400
       LETSENCRYPT_HOST: movie.pavons.com
